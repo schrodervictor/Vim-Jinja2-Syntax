@@ -30,7 +30,9 @@ endif
 
 " Pull in the HTML syntax.
 if g:jinja_syntax_html
-  if version < 600
+  if match(expand('%:t'), '\.php\.*') != -1
+    so <sfile>:p:h/php.vim
+  elseif version < 600
     so <sfile>:p:h/html.vim
   else
     runtime! syntax/html.vim
